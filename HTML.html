@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semangat Sayang</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f0f8ff;
+            color: #4b0082;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            color: #8b0000;
+            margin-top: 30px;
+            font-size: 2.5em;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 20px auto;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeIn 4s ease-in-out forwards;
+            animation-delay: 2s;
+        }
+        .flower, .tree, .grass {
+            position: absolute;
+            animation: moveUp 10s infinite ease-in-out;
+            opacity: 0.8;
+        }
+        .flower {
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            border-radius: 50%;
+        }
+        .tree {
+            width: 50px;
+            height: 100px;
+            background-color: #228b22;
+            border-radius: 10px;
+        }
+        .grass {
+            width: 100px;
+            height: 20px;
+            background-color: #32cd32;
+            border-radius: 5px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes moveUp {
+            0% {
+                transform: scale(0.5) translateY(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.2) translateY(-100vh);
+                opacity: 0;
+            }
+        }
+        .side-elements {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .side-elements div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .tree::after, .grass::after {
+            content: '';
+            width: 80%;
+            height: 10px;
+            background-color: #8b4513;
+            margin-top: -5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Semangat Ya Sayangg!</h1>
+    <p>
+        Kalau kamu capek gara-gara tugas, buka ini yaa sayangg.<br>
+        AKU SAYANG KAMUU ❤️
+    </p>
+
+    <div class="side-elements">
+        <div>
+            <div class="tree"></div>
+            <div class="grass"></div>
+        </div>
+        <div>
+            <div class="tree"></div>
+            <div class="grass"></div>
+        </div>
+    </div>
+
+    <!-- Animasi Bunga -->
+    <script>
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = Math.random() * 5 + 5 + 's';
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 10000);
+        }
+
+        setInterval(createFlower, 500);
+    </script>
+</body>
+</html>
